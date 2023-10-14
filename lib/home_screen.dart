@@ -2,7 +2,15 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  final List<String> categories = [
+    'Shirts',
+    'Pants',
+    'Clothes',
+    'Dressed',
+    'Hats',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -44,236 +52,45 @@ class HomeScreen extends StatelessWidget {
 
             // Category
             Container(
-              padding: const EdgeInsets.all(8.0),
+              margin: const EdgeInsets.all(8.0),
               height: 100,
-              child: ListView(
+              child: ListView.builder(
+                itemCount: categories.length,
                 scrollDirection: Axis.horizontal,
-                children: [
-                  Column(
+                itemBuilder: (context, index) {
+                  return Column(
                     children: [
-                      CircleAvatar(
-                        radius: 31,
-                        backgroundColor: Colors.grey,
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_2_outlined,
-                            color: Color(0xff40BFFF),
-                          ),
-                        ),
-                      ),
+                      categoryItem(),
+                      Text('${categories[index]}'),
                     ],
-                  ),
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 31,
-                        backgroundColor: Colors.grey,
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_2_outlined,
-                            color: Color(0xff40BFFF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 31,
-                        backgroundColor: Colors.grey,
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_2_outlined,
-                            color: Color(0xff40BFFF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 31,
-                        backgroundColor: Colors.grey,
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_2_outlined,
-                            color: Color(0xff40BFFF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 31,
-                        backgroundColor: Colors.grey,
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_2_outlined,
-                            color: Color(0xff40BFFF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 31,
-                        backgroundColor: Colors.grey,
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_2_outlined,
-                            color: Color(0xff40BFFF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 31,
-                        backgroundColor: Colors.grey,
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_2_outlined,
-                            color: Color(0xff40BFFF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 31,
-                        backgroundColor: Colors.grey,
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_2_outlined,
-                            color: Color(0xff40BFFF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 31,
-                        backgroundColor: Colors.grey,
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_2_outlined,
-                            color: Color(0xff40BFFF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 31,
-                        backgroundColor: Colors.grey,
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_2_outlined,
-                            color: Color(0xff40BFFF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 31,
-                        backgroundColor: Colors.grey,
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_2_outlined,
-                            color: Color(0xff40BFFF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 31,
-                        backgroundColor: Colors.grey,
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_2_outlined,
-                            color: Color(0xff40BFFF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 31,
-                        backgroundColor: Colors.grey,
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_2_outlined,
-                            color: Color(0xff40BFFF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-
-
-                ],
+                  );
+                },
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget categoryItem() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Column(
+        children: [
+          CircleAvatar(
+            radius: 31,
+            backgroundColor: Colors.orange,
+            child: CircleAvatar(
+              radius: 30,
+              backgroundColor: Colors.white,
+              child: Icon(
+                Icons.access_alarm_outlined,
+                color: Color(0xff40BFFF),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
