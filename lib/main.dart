@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:start_project_sat28/home_screen.dart';
+import 'package:start_project_sat28/test_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -194,7 +195,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () {
         Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
           builder: (context) {
-            return HomeScreen();
+            return TestNavBarScreen();
           },
         ), (route) => false);
       },

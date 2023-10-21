@@ -4,13 +4,84 @@ import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  final List<String> categories = [
-    'Shirts',
-    'Pants',
-    'Clothes',
-    'Dressed',
-    'Hats',
+  // final List<String> categories = [
+  //   'Shirts',
+  //   'Pants',
+  //   'Clothes',
+  //   'Dressed',
+  //   'Hats',
+  // ];
+  //
+  // List<String> listOfImages = [
+  //   'assets/images/man_bag.png',
+  //   'assets/images/shirt.png',
+  //   'assets/images/woman_bag.png',
+  //   'assets/images/dress.png',
+  // ];
+
+  // final listOfCategories = [
+  //   {
+  //     'image': 'assets/images/man_bag.png',
+  //     'name' : 'Man Bag',
+  //     'discount' : true,
+  //      'discountPrice': 100.0
+
+  //   },
+  //   {
+  //     'image': 'assets/images/shirt.png',
+  //     'name' : 'shirt',
+  //   },
+  //   {
+  //     'image': 'assets/images/woman_bag.png',
+  //     'name' : 'Woman Bag',
+  //   },
+  //   {
+  //     'image': 'assets/images/dress.png',
+  //     'name' : 'Dress',
+  //   },
+  // ];
+
+  final List<CategoryItem> listOfCategoryTwo = [
+    CategoryItem(
+      'assets/images/man_bag.png',
+      'Man',
+      Colors.black,
+      25,
+      1,
+    ),
+    CategoryItem(
+      'assets/images/woman_bag.png',
+      'Woman',
+      Colors.orange,
+      18,
+      2,
+    ),
+    CategoryItem(
+      'assets/images/dress.png',
+      'Dress',
+      Colors.green,
+      11,
+      3,
+
+    ),
+    CategoryItem(
+      'assets/images/shirt.png',
+      'Shirt',
+      Colors.purple,
+      15,
+      4,
+    ),
+
   ];
+
+  final Map<int, Color> listOfStyle =
+    {
+      1: Colors.black,
+      2: Colors.orange,
+      3: Colors.greenAccent,
+      4: Colors.red,
+    };
+
 
   @override
   Widget build(BuildContext context) {
@@ -50,30 +121,52 @@ class HomeScreen extends StatelessWidget {
               }).toList(),
             ),
 
-            // Category
-            Container(
-              margin: const EdgeInsets.all(8.0),
+            SizedBox(
               height: 100,
               child: ListView.builder(
-                itemCount: categories.length,
+                itemCount: listOfCategoryTwo.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
+
                   return Column(
                     children: [
-                      categoryItem(),
-                      Text('${categories[index]}'),
+                      categoryItem(listOfCategoryTwo[index].image),
+                      Text(
+                        listOfCategoryTwo[index].categoryName,
+                        style: TextStyle(
+                          color: listOfStyle[listOfCategoryTwo[index].code],
+                          fontSize: listOfCategoryTwo[index].fontSize,
+                        ),
+                      ),
                     ],
                   );
                 },
               ),
             ),
+            // Category
+            // Container(
+            //   margin: const EdgeInsets.all(8.0),
+            //   height: 100,
+            //   child: ListView.builder(
+            //     itemCount: categories.length,
+            //     scrollDirection: Axis.horizontal,
+            //     itemBuilder: (context, index) {
+            //       return Column(
+            //         children: [
+            //           categoryItem(),
+            //           Text('${categories[index]}'),
+            //         ],
+            //       );
+            //     },
+            //   ),
+            // ),
           ],
         ),
       ),
     );
   }
 
-  Widget categoryItem() {
+  Widget categoryItem(String image) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Column(
@@ -84,14 +177,24 @@ class HomeScreen extends StatelessWidget {
             child: CircleAvatar(
               radius: 30,
               backgroundColor: Colors.white,
-              child: Icon(
-                Icons.access_alarm_outlined,
-                color: Color(0xff40BFFF),
-              ),
+              child: Image.asset(image),
             ),
           ),
         ],
       ),
     );
   }
+}
+
+// Model
+class CategoryItem {
+  final String image;
+  final String categoryName;
+
+  final Color color;
+
+  final double fontSize;
+
+  final int code;
+  CategoryItem(this.image, this.categoryName, this.color, this.fontSize, this.code);
 }
