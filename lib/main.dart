@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:start_project_sat28/home_screen.dart';
+import 'package:start_project_sat28/main_screen.dart';
 import 'package:start_project_sat28/test_screen.dart';
 
 void main() {
@@ -12,6 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        useMaterial3: true,
+      ),
       home: SplashScreen(),
     );
   }
@@ -195,7 +198,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () {
         Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
           builder: (context) {
-            return TestNavBarScreen();
+            return MainScreen();
           },
         ), (route) => false);
       },
